@@ -114,7 +114,7 @@ body {
   /* 👇 Yahan se background image ka game shuru */
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.25)),
-    url("https://ik.imagekit.io/hyi9kn2fq/stylish-old-man-with-gray-hair-and-beard-free-photo.webp");
+    url("https://ik.imagekit.io/hyi9kn2fq/stylish-old-man-with-gray-hair-and-beard-free-photo.webp?updatedAt=1764348940958");
   /* ⬆ SAMPLE LINK – baad me sirf is url("...") ke andar tum apna link daal dena */
 
   background-size: cover;
@@ -132,7 +132,7 @@ body {
     padding: 120px 7vw 60px;          /* thoda kam padding upar */
     overflow: visible;               /* kuch cut na ho */
   }
-  .hero-content {margin-top: 40px;text-align: center;
+  .hero-content {margin-top: 152px;text-align: center;
   }
 }
 
