@@ -114,7 +114,7 @@ body {
   /* 👇 Yahan se background image ka game shuru */
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.25)),
-    url("https://ik.imagekit.io/hyi9kn2fq/stylish-old-man-with-gray-hair-and-beard-free-photo.webp?updatedAt=1764348940958");
+    url("https://ik.imagekit.io/hyi9kn2fq/dev123.webp");
   /* ⬆ SAMPLE LINK – baad me sirf is url("...") ke andar tum apna link daal dena */
 
   background-size: cover;
