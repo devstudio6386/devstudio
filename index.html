@@ -430,6 +430,12 @@
           <label for="msg">Tell us your idea</label>
           <textarea id="msg" rows="4" placeholder="Event, date, vibe, anything…"></textarea>
         </div>
+        <button type="button" id="showPhoneBtnInquiry" class="btn outline full" style="margin-bottom: 8px;">
+          Show Phone Number
+        </button>
+        <div id="phoneDisplayInquiry" style="display:none; text-align:center; margin-bottom:8px; font-size:0.9rem; color:var(--accent);">
+          Phone: +91 916386754482
+        </div>
         <button type="submit" class="btn primary full">Send Inquiry</button>
       </form>
     </div>
@@ -497,6 +503,13 @@
           <textarea id="bdetails" rows="3" placeholder="Date, time, ideas, anything…"></textarea>
         </div>
 
+        <button type="button" id="showPhoneBtnBooking" class="btn outline full" style="margin-top: 8px;">
+          Show Phone Number
+        </button>
+        <div id="phoneDisplayBooking" style="display:none; text-align:center; margin-top:8px; font-size:0.9rem; color:var(--accent);">
+          Phone: +91 916386754482
+        </div>
+
         <button type="submit" class="btn primary full" style="margin-top: 4px;">
           Submit Booking
         </button>
@@ -516,11 +529,14 @@
   const bookingModal = document.getElementById('bookingModal');
   const bookingForm = document.getElementById('bookingForm');
   const successMsg = document.getElementById('bookingSuccess');
+  const showPhoneBtnBooking = document.getElementById('showPhoneBtnBooking');
+  const phoneDisplayBooking = document.getElementById('phoneDisplayBooking');
 
   if (openBooking && closeBooking && bookingModal && bookingForm) {
     openBooking.addEventListener('click', () => {
       bookingModal.classList.add('show');
       if (successMsg) successMsg.style.display = 'none';
+      if (phoneDisplayBooking) phoneDisplayBooking.style.display = 'none';
     });
 
     closeBooking.addEventListener('click', () => {
@@ -533,16 +549,42 @@
       }
     });
 
+    if (showPhoneBtnBooking && phoneDisplayBooking) {
+      showPhoneBtnBooking.addEventListener('click', () => {
+        phoneDisplayBooking.style.display = phoneDisplayBooking.style.display === 'none' ? 'block' : 'none';
+      });
+    }
+
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('bname').value.trim();
+      const address = document.getElementById('baddress').value.trim();
       const service = document.getElementById('bservice').value.trim();
+      const details = document.getElementById('bdetails').value.trim();
       if (!name || !service) {
         alert('Please fill at least your name and select a service.');
         return;
       }
+      let message = "New Booking Request:%0A%0A" +
+        "Name: " + name + "%0A" +
+        "Address: " + address + "%0A" +
+        "Service: " + service + "%0A" +
+        "Details: " + details + "%0A" +
+        "Please contact me asap! 😊";
+      let whatsappNumber = "916386754482";
+      window.open("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message), "_blank");
       if (successMsg) successMsg.style.display = 'block';
       bookingForm.reset();
+    });
+  }
+
+  /* === INQUIRY FORM PHONE BUTTON === */
+  const showPhoneBtnInquiry = document.getElementById('showPhoneBtnInquiry');
+  const phoneDisplayInquiry = document.getElementById('phoneDisplayInquiry');
+
+  if (showPhoneBtnInquiry && phoneDisplayInquiry) {
+    showPhoneBtnInquiry.addEventListener('click', () => {
+      phoneDisplayInquiry.style.display = phoneDisplayInquiry.style.display === 'none' ? 'block' : 'none';
     });
   }
 
@@ -622,31 +664,7 @@ if (menuToggle && navLinks) {
   window.addEventListener('load', handleScrollReveal);
 </script>
 
-<script>
 
-  document.getElementById("bookingForm").addEventListener("submit", function (e) {
-    e.preventDefault(); 
-
-    // form se values uthana
-    let name    = document.getElementById("name").value;
-    let address = document.getElementById("address").value;
-    let service = document.getElementById("service").value;
-    
-
-    // WhatsApp message text
-    let message =
-      "New Booking Request:%0A%0A" +
-      "Name: "    + name    + "%0A" +
-      "Address: " + address + "%0A" +
-      "Service: " + service + "%0A" +
-       "Please contact me asap! 😊";
-
-    // ⭐ yaha apna WhatsApp number daalo (without +)
-    let whatsappNumber = "916386754482";
-
-     window.open("https://wa.me/" + whatsappNumber + "?text=" + message, "_blank");
-  });
-</script>
 
 <script>
 document.getElementById("quickInquiryForm").addEventListener("submit", function(e) {
