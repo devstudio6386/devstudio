@@ -557,16 +557,15 @@
 
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      let name = document.getElementById('name').value;
-      let address = document.getElementById('address').value;
-      let service = document.getElementById('service').value;
-      let details = document.getElementById('details').value;
+      const name = document.getElementById('bname').value.trim();
+      const address = document.getElementById('baddress').value.trim();
+      const service = document.getElementById('bservice').value.trim();
+      const details = document.getElementById('bdetails').value.trim();
       if (!name || !service) {
         alert('Please fill at least your name and select a service.');
         return;
       }
-      let message =
-       "New Booking Request:%0A%0A" +
+      let message = "New Booking Request:%0A%0A" +
         "Name: " + name + "%0A" +
         "Address: " + address + "%0A" +
         "Service: " + service + "%0A" +
