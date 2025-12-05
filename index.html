@@ -49,7 +49,7 @@
       <p class="eyebrow">Modeling • Makeup • Photoshoots</p>
       <h1>Where <span>Confidence</span> Meets <span>Glamour</span></h1>
       <p class="hero-text">
-  Boys & Girls-only Dev studio for shoots, reels, bridal looks and content.
+  Boys & Girls-only Mahi Makeup studio for shoots, reels, bridal looks and content.
   Yahan sirf photos nahi, pura vibe banta hai.
   </p>
   <p class="hero-text">
@@ -407,7 +407,7 @@
     <div class="contact-grid">
       <div class="contact-info">
         <h3>Studio Details</h3>
-        <p>Dev Studio<br />Your City, Your Area<br />India</p>
+        <p>Mahi Makeup Studio<br />Your City, Your Area<br />India</p>
         <p><strong>WhatsApp:</strong> +91 6386754482</p>
         <p><strong>Email:</strong> devthakur63867@gmail.com</p>
         <p class="small">Timings: 10 AM – 8 PM • By appointments only</p>
@@ -442,7 +442,7 @@
   </section>
 
   <footer class="footer">
-    <p>© 2025 Dev Studio – Modeling & Beauty. Built with love for the camera.</p>
+    <p>© 2025 Mahi Makeup Studio – Modeling & Beauty. Built with love for the camera. (Designed by Dev)</p>
   </footer>
   <!-- FLOATING BUTTONS -->
   <div class="floating-buttons">
@@ -557,15 +557,16 @@
 
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('bname').value.trim();
-      const address = document.getElementById('baddress').value.trim();
-      const service = document.getElementById('bservice').value.trim();
-      const details = document.getElementById('bdetails').value.trim();
+      let name = document.getElementById('name').value;
+      let address = document.getElementById('address').value;
+      let service = document.getElementById('service').value;
+      let details = document.getElementById('details').value;
       if (!name || !service) {
         alert('Please fill at least your name and select a service.');
         return;
       }
-      let message = "New Booking Request:%0A%0A" +
+      let message =
+       "New Booking Request:%0A%0A" +
         "Name: " + name + "%0A" +
         "Address: " + address + "%0A" +
         "Service: " + service + "%0A" +
