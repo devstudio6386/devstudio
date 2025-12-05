@@ -573,9 +573,7 @@
         "Details: " + details + "%0A" +
         "Please contact me asap! 😊";
       let whatsappNumber = "916386754482";
-      window.open("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message), "_blank");
-      if (successMsg) successMsg.style.display = 'block';
-      bookingForm.reset();
+      window.open("https://wa.me/" + whatsappNumber + "?text=" + message, "_blank");
     });
   }
 
