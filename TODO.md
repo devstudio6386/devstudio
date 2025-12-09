@@ -29,3 +29,9 @@
 - [ ] Test phone number reveal
 - [ ] Check responsiveness
 - [ ] Final review and tweaks
+
+## Phase 6: Update Booking Modal Services
+- [ ] Update services object in JS to match website services (Model Portfolio Build, Bridal & Engagement Glam, etc.)
+- [ ] Add sub-services for each main service
+- [ ] Add "Book Now" buttons to each service card that pre-select the service in the modal
+- [ ] Test pre-selection and sub-service population

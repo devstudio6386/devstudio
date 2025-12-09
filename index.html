@@ -231,30 +231,34 @@
       <div class="service-card">
         <h3>Model Portfolio Build</h3>
         <p>3–4 curated looks, studio + outdoor options, posing guidance and social media ready content.</p>
-        <a class="call-btn" href="tel:+916386754482">
-   Ask for Price
-</a>
+        <div class="service-buttons">
+          <button class="btn primary book-service-btn" data-service="Model Portfolio Build">Book Now</button>
+          <a class="call-btn" href="tel:+916386754482">Ask for Price</a>
+        </div>
       </div>
       <div class="service-card">
         <h3>Bridal & Engagement Glam</h3>
         <p>HD / airbrush makeup, hairstyling, draping and detailed pre-shoot touch-ups.</p>
-        <a class="call-btn" href="tel:+916386754482">
-   Ask for Price
-</a>
+        <div class="service-buttons">
+          <button class="btn primary book-service-btn" data-service="Bridal & Engagement Glam">Book Now</button>
+          <a class="call-btn" href="tel:+916386754482">Ask for Price</a>
+        </div>
       </div>
       <div class="service-card">
         <h3>Party & Casual Shoots</h3>
         <p>Soft glam + fun photoshoot for birthdays, farewells, dates and content days.</p>
-        <a class="call-btn" href="tel:+916386754482">
-   Ask for Price
-</a>
+        <div class="service-buttons">
+          <button class="btn primary book-service-btn" data-service="Party & Casual Shoots">Book Now</button>
+          <a class="call-btn" href="tel:+916386754482">Ask for Price</a>
+        </div>
       </div>
       <div class="service-card">
         <h3>Reels & Content Day</h3>
         <p>Multiple outfits, trending reel concepts, BTS clips and high-res photos for your feed.</p>
-        <a class="call-btn" href="tel:+916386754482">
-   Ask for Price
-</a>
+        <div class="service-buttons">
+          <button class="btn primary book-service-btn" data-service="Reels & Content Day">Book Now</button>
+          <a class="call-btn" href="tel:+916386754482">Ask for Price</a>
+        </div>
       </div>
     </div>
   </section>
@@ -453,20 +457,8 @@
 
       <form id="bookingForm">
         <div class="field">
-          <label for="bname">Full Name</label>
-          <input id="bname" type="text" placeholder="Your full name" required />
-        </div>
-
-        <div class="field">
-          <label for="bphone">Phone Number</label>
-          <input id="bphone" type="tel" placeholder="Your phone number" required />
-        </div>
-
-        <button type="button" id="showPhoneBtnBooking" class="btn outline full" style="margin-bottom: 8px;">
-          Show Phone Number
-        </button>
-        <div id="phoneDisplayBooking" style="display:none; text-align:center; margin-bottom:8px; font-size:0.9rem; color:var(--accent);">
-          Phone: +91 916386754482
+          <label for="bname">Name</label>
+          <input id="bname" type="text" placeholder="Your name" required />
         </div>
 
         <div class="field">
@@ -476,45 +468,23 @@
 
         <!-- Main Services -->
         <div class="field">
-          <label>Main Service</label>
-          <div id="mainServices" class="radio-group">
-            <!-- Radio buttons will be populated by JS -->
-          </div>
+          <label for="mainServiceSelect">Choose Service</label>
+          <select id="mainServiceSelect" required>
+            <option value="">Select a service</option>
+            <!-- Options will be populated by JS -->
+          </select>
         </div>
 
         <!-- Sub Services -->
         <div id="subServicesContainer" class="field" style="display:none;">
-          <label>Sub-Services</label>
-          <div id="subServices" class="checkbox-group">
-            <!-- Checkboxes will be populated by JS -->
-          </div>
-        </div>
-
-        <!-- Date and Time -->
-        <div class="field">
-          <label for="bdate">Preferred Date</label>
-          <input id="bdate" type="date" required />
-        </div>
-
-        <div class="field">
-          <label for="btime">Preferred Time</label>
-          <input id="btime" type="time" required />
-        </div>
-
-        <!-- Summary -->
-        <div id="bookingSummary" class="summary-panel" style="display:none;">
-          <h4>Booking Summary</h4>
-          <div id="summaryItems"></div>
-          <div id="totalPrice">Total: ₹0</div>
-        </div>
-
-        <div class="field">
-          <label for="bdetails">Additional Notes</label>
-          <textarea id="bdetails" rows="3" placeholder="Any special requests or ideas…"></textarea>
+          <label for="subServices">Choose Sub-Service</label>
+          <select id="subServices">
+            <!-- Options will be populated by JS -->
+          </select>
         </div>
 
         <button type="submit" class="btn primary full" style="margin-top: 4px;">
-          Confirm & WhatsApp
+          Submit & WhatsApp
         </button>
 
         <p id="bookingSuccess" class="success-msg" style="display:none; margin-top: 8px;">
@@ -528,21 +498,25 @@
 <script>
   /* === BOOKING MODAL === */
   const services = {
-    "Hair Styling": [
-      { name: "Stylish party hairstyle", description: "Perfect for parties and events", price: 1500, inputType: "none" },
-      { name: "Bridal hairstyle", description: "Elegant bridal styling", price: 2500, inputType: "none" },
-      { name: "Hair coloring", description: "Professional hair coloring service", price: 3000, inputType: "quantity" }
+    "Model Portfolio Build": [
+      { name: "Studio Shoot", description: "Professional studio photography session", price: 5000, inputType: "none" },
+      { name: "Outdoor Shoot", description: "Outdoor location photography", price: 6000, inputType: "none" },
+      { name: "Posing Guidance", description: "Expert posing and expression coaching", price: 2000, inputType: "none" }
     ],
-    "Makeup": [
+    "Bridal & Engagement Glam": [
       { name: "Bridal Makeup", description: "Complete bridal makeup with trial", price: 5000, inputType: "none" },
-      { name: "Party Makeup", description: "Glam makeup for parties and events", price: 2500, inputType: "none" },
-      { name: "Engagement Look", description: "Special engagement makeup", price: 3500, inputType: "none" },
-      { name: "Model Portfolio Shoot", description: "Professional makeup for photoshoots", price: 4000, inputType: "quantity" }
+      { name: "Engagement Makeup", description: "Special engagement makeup look", price: 3500, inputType: "none" },
+      { name: "Hairstyling", description: "Bridal hairstyling services", price: 2500, inputType: "none" }
     ],
-    "Facial": [
-      { name: "Anti-Aging Facial", description: "Rejuvenating facial treatment", price: 2000, inputType: "quantity" },
-      { name: "Hydrating Facial", description: "Deep hydration treatment", price: 1500, inputType: "none" },
-      { name: "Brightening Facial", description: "Skin brightening treatment", price: 1800, inputType: "duration" }
+    "Party & Casual Shoots": [
+      { name: "Party Makeup", description: "Glam makeup for parties and events", price: 2500, inputType: "none" },
+      { name: "Casual Shoot", description: "Fun photoshoot for casual occasions", price: 3000, inputType: "none" },
+      { name: "Birthday Glam", description: "Special makeup for birthdays", price: 2000, inputType: "none" }
+    ],
+    "Reels & Content Day": [
+      { name: "Instagram Reels", description: "Short video content for social media", price: 4000, inputType: "quantity" },
+      { name: "Content Shoot", description: "Full day content creation", price: 7000, inputType: "none" },
+      { name: "BTS Clips", description: "Behind-the-scenes video clips", price: 3000, inputType: "none" }
     ]
   };
 
@@ -551,68 +525,44 @@
   const bookingModal = document.getElementById('bookingModal');
   const bookingForm = document.getElementById('bookingForm');
   const successMsg = document.getElementById('bookingSuccess');
-  const mainServices = document.getElementById('mainServices');
+  const mainServiceSelect = document.getElementById('mainServiceSelect');
   const subServicesContainer = document.getElementById('subServicesContainer');
   const subServices = document.getElementById('subServices');
-  const bookingSummary = document.getElementById('bookingSummary');
-  const summaryItems = document.getElementById('summaryItems');
-  const totalPrice = document.getElementById('totalPrice');
 
   function populateMainServices() {
-    mainServices.innerHTML = '';
+    const mainServiceSelect = document.getElementById('mainServiceSelect');
+    mainServiceSelect.innerHTML = '<option value="">Select a service</option>';
     Object.keys(services).forEach(service => {
-      const label = document.createElement('label');
-      label.innerHTML = `<input type="radio" name="mainService" value="${service}"> ${service}`;
-      mainServices.appendChild(label);
+      const option = document.createElement('option');
+      option.value = service;
+      option.textContent = service;
+      mainServiceSelect.appendChild(option);
     });
   }
 
   function handleMainServiceChange() {
-    const selectedMain = document.querySelector('input[name="mainService"]:checked');
-    if (selectedMain) {
-      const mainService = selectedMain.value;
+    const mainServiceSelect = document.getElementById('mainServiceSelect');
+    const selectedService = mainServiceSelect.value;
+    if (selectedService) {
       subServices.innerHTML = '';
-      services[mainService].forEach(service => {
-        const item = document.createElement('div');
-        item.className = 'service-item';
-        item.innerHTML = `
-          <div class="service-header">
-            <input type="checkbox" data-service="${service.name}" data-price="${service.price}" data-input="${service.inputType}">
-            <label>${service.name}</label>
-          </div>
-          <div class="service-details">${service.description}</div>
-          <div class="service-price">₹${service.price}${service.inputType === 'quantity' ? ' per unit' : service.inputType === 'duration' ? ' per hour' : ''}</div>
-          ${service.inputType === 'quantity' ? '<input type="number" min="1" value="1" placeholder="Qty">' : ''}
-          ${service.inputType === 'duration' ? '<input type="number" min="0.5" step="0.5" value="1" placeholder="hours">' : ''}
-        `;
-        subServices.appendChild(item);
+      services[selectedService].forEach(subService => {
+        const option = document.createElement('option');
+        option.value = subService.name;
+        option.textContent = subService.name;
+        subServices.appendChild(option);
       });
       subServicesContainer.style.display = 'block';
     } else {
       subServicesContainer.style.display = 'none';
     }
-    updateSummary();
   }
 
   function updateSummary() {
-    const selectedServices = [];
-    let total = 0;
-    document.querySelectorAll('#subServices input[type="checkbox"]:checked').forEach(checkbox => {
-      const serviceName = checkbox.dataset.service;
-      const price = parseFloat(checkbox.dataset.price);
-      const inputType = checkbox.dataset.input;
-      let multiplier = 1;
-      const input = checkbox.parentElement.parentElement.querySelector('input[type="number"]');
-      if (input) {
-        multiplier = parseFloat(input.value) || 1;
-      }
-      const itemTotal = price * multiplier;
-      total += itemTotal;
-      selectedServices.push(`${serviceName} - ₹${itemTotal}`);
-    });
+    const selectedOptions = Array.from(subServices.selectedOptions);
+    const selectedServices = selectedOptions.map(option => option.value);
     summaryItems.innerHTML = selectedServices.join('<br>');
-    totalPrice.textContent = `Total: ₹${total}`;
-    bookingSummary.style.display = total > 0 ? 'block' : 'none';
+    // For simplicity, no pricing in summary for now, as user didn't specify
+    bookingSummary.style.display = selectedServices.length > 0 ? 'block' : 'none';
   }
 
   if (openBooking && closeBooking && bookingModal && bookingForm) {
@@ -634,53 +584,40 @@
       }
     });
 
-    mainServices.addEventListener('change', handleMainServiceChange);
+    mainServiceSelect.addEventListener('change', handleMainServiceChange);
     subServices.addEventListener('change', updateSummary);
     subServices.addEventListener('input', updateSummary);
+
+    // Handle service card "Book Now" buttons
+    const bookServiceBtns = document.querySelectorAll('.book-service-btn');
+    bookServiceBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const service = btn.getAttribute('data-service');
+        bookingModal.classList.add('show');
+        populateMainServices();
+        mainServiceSelect.value = service;
+        handleMainServiceChange(); // Populate sub-services
+        if (successMsg) successMsg.style.display = 'none';
+      });
+    });
 
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('bname').value.trim();
-      const phone = document.getElementById('bphone').value.trim();
       const address = document.getElementById('baddress').value.trim();
-      const date = document.getElementById('bdate').value;
-      const time = document.getElementById('btime').value;
-      const selectedMain = document.querySelector('input[name="mainService"]:checked');
-      const details = document.getElementById('bdetails').value.trim();
+      const mainService = document.getElementById('mainServiceSelect').value;
+      const selectedSubService = document.getElementById('subServices').value;
 
-      if (!name || !phone || !selectedMain) {
-        alert('Please fill in your name, phone, and select a main service.');
+      if (!name || !address || !mainService || !selectedSubService) {
+        alert('Please fill in all required fields: name, address, select a service, and select a sub-service.');
         return;
       }
 
-      const selectedServices = [];
-      document.querySelectorAll('#subServices input[type="checkbox"]:checked').forEach(checkbox => {
-        const serviceName = checkbox.dataset.service;
-        const inputType = checkbox.dataset.input;
-        let detail = serviceName;
-        const input = checkbox.parentElement.parentElement.querySelector('input[type="number"]');
-        if (input) {
-          const value = input.value;
-          detail += inputType === 'quantity' ? ` (Qty: ${value})` : ` (${value} hours)`;
-        }
-        selectedServices.push(detail);
-      });
-
-      if (selectedServices.length === 0) {
-        alert('Please select at least one sub-service.');
-        return;
-      }
-
-      const total = totalPrice.textContent.replace('Total: ₹', '');
       let message = "New Booking Request:%0A%0A" +
         "👤 Name: " + name + "%0A" +
-        "📞 Phone: " + phone + "%0A" +
         "🏠 Address: " + address + "%0A" +
-        "📅 Date: " + date + "%0A" +
-        "⏰ Time: " + time + "%0A" +
-        "💄 Services: " + selectedServices.join(', ') + "%0A" +
-        "💰 Total: ₹" + total + "%0A" +
-        "📝 Notes: " + details + "%0A%0A" +
+        "💄 Service: " + mainService + "%0A" +
+        "💅 Sub-Service: " + selectedSubService + "%0A%0A" +
         "Please confirm my booking! 😊";
 
       const whatsappNumber = "916386754482";
@@ -688,7 +625,6 @@
       if (successMsg) successMsg.style.display = 'block';
       bookingForm.reset();
       subServicesContainer.style.display = 'none';
-      bookingSummary.style.display = 'none';
     });
   }
 
