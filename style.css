@@ -640,6 +640,110 @@ section {
   background: #040408;
 }
 
+/* New styles for booking modal */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(5, 5, 6, 0.7);
+  transition: background 0.2s ease;
+}
+
+.radio-group label:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.radio-group input[type="radio"] {
+  margin: 0;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-group .service-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(5, 5, 6, 0.7);
+}
+
+.checkbox-group .service-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-group .service-header label {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.checkbox-group .service-details {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-left: 24px;
+}
+
+.checkbox-group .service-price {
+  font-size: 0.9rem;
+  color: var(--highlight);
+  margin-left: 24px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin: 0;
+}
+
+.checkbox-group input[type="number"] {
+  width: 80px;
+  margin-left: 24px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(5, 5, 6, 0.7);
+  color: var(--text-main);
+}
+
+.summary-panel {
+  background: rgba(15, 15, 25, 0.96);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  border: 1px solid var(--border-soft);
+  margin-top: 12px;
+}
+
+.summary-panel h4 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+#summaryItems {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+#totalPrice {
+  font-weight: bold;
+  color: var(--highlight);
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .navbar {

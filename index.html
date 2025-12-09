@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dev Studio – Portfolio & Beauty</title>
+  <title>Mahi Makeup Studio – Makeup & Beauty</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=1.4" />
+  <link rel="stylesheet" href="style.css?v=1.5" />
 </head>
 <body>
   <header class="navbar">
-  <div class="logo">DEV<span>Studio</span></div>
+  <div class="logo">Mahi Makeup  <span>  Studio</span></div>
 
   <!-- Mobile Menu Button -->
   <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
       <p class="eyebrow">Modeling • Makeup • Photoshoots</p>
       <h1>Where <span>Confidence</span> Meets <span>Glamour</span></h1>
       <p class="hero-text">
-  Boys & Girls-only Dev studio for Beauty, bridal looks and content.
+  Boys & Girls-only Mahi Makeup studio for Beauty, bridal looks and content.
   Yahan sirf Makeup nahi, pura vibe banta hai.
   </p>
   
@@ -265,13 +265,13 @@
 
     <!-- Background big title like MOHAMED RADY -->
     <div class="model-bg-title">
-      <span class="model-bg-first">INTRODUCING </span>
-      <span class="model-bg-last">BEAUTY OF</span>
+      <span class="model-bg-first">MEET  </span>
+      <span class="model-bg-last">OUR ARTIST</span>
     </div>
 
     <!-- Top small heading -->
     <div class="model-top-heading">
-      <h2>Our Artist</h2>
+      <h2>Sakshi Singh</h2>
       <p>Girls who turned their love for photos into powerful visuals.</p>
     </div>
 
@@ -384,7 +384,7 @@
     <div class="contact-grid">
       <div class="contact-info">
         <h3>Studio Details</h3>
-        <p>Dev Studio<br />Your City, Your Area<br />India</p>
+        <p>Mahi Makeup<br />Your City, Your Area<br />India</p>
         <p><strong>WhatsApp:</strong> +91 6386754482</p>
         <p><strong>Email:</strong> devthakur63867@gmail.com</p>
         <p class="small">Timings: 10 AM – 8 PM • By appointments only</p>
@@ -419,7 +419,7 @@
   </section>
 
   <footer class="footer">
-    <p>© 2025 Dev Studio – Modeling & Beauty. Built with love for the camera. (Designed by Dev)</p>
+    <p>© 2025 Mahi Makeup – Modeling & Beauty. Built with love for the camera. (Designed by Dev)</p>
   </footer>
   <!-- FLOATING BUTTONS -->
   <div class="floating-buttons">
@@ -458,37 +458,63 @@
         </div>
 
         <div class="field">
+          <label for="bphone">Phone Number</label>
+          <input id="bphone" type="tel" placeholder="Your phone number" required />
+        </div>
+
+        <button type="button" id="showPhoneBtnBooking" class="btn outline full" style="margin-bottom: 8px;">
+          Show Phone Number
+        </button>
+        <div id="phoneDisplayBooking" style="display:none; text-align:center; margin-bottom:8px; font-size:0.9rem; color:var(--accent);">
+          Phone: +91 916386754482
+        </div>
+
+        <div class="field">
           <label for="baddress">Address</label>
           <textarea id="baddress" rows="2" placeholder="Your address or area" required></textarea>
         </div>
 
+        <!-- Main Services -->
         <div class="field">
-          <label for="bservice">Select Service</label>
-          <select id="bservice" required>
-            <option value="">Choose one</option>
-            <option>Bridal Makeup</option>
-            <option>Engagement / Roka Look</option>
-            <option>Party / Occasion Makeup</option>
-            <option>Model Portfolio Shoot</option>
-            <option>Reels / Content Day</option>
-            <option>Casual Glam + Shoot</option>
-          </select>
+          <label>Main Service</label>
+          <div id="mainServices" class="radio-group">
+            <!-- Radio buttons will be populated by JS -->
+          </div>
+        </div>
+
+        <!-- Sub Services -->
+        <div id="subServicesContainer" class="field" style="display:none;">
+          <label>Sub-Services</label>
+          <div id="subServices" class="checkbox-group">
+            <!-- Checkboxes will be populated by JS -->
+          </div>
+        </div>
+
+        <!-- Date and Time -->
+        <div class="field">
+          <label for="bdate">Preferred Date</label>
+          <input id="bdate" type="date" required />
         </div>
 
         <div class="field">
-          <label for="bdetails">Additional Details</label>
-          <textarea id="bdetails" rows="3" placeholder="Date, time, ideas, anything…"></textarea>
+          <label for="btime">Preferred Time</label>
+          <input id="btime" type="time" required />
         </div>
 
-        <button type="button" id="showPhoneBtnBooking" class="btn outline full" style="margin-top: 8px;">
-          Show Phone Number
-        </button>
-        <div id="phoneDisplayBooking" style="display:none; text-align:center; margin-top:8px; font-size:0.9rem; color:var(--accent);">
-          Phone: +91 916386754482
+        <!-- Summary -->
+        <div id="bookingSummary" class="summary-panel" style="display:none;">
+          <h4>Booking Summary</h4>
+          <div id="summaryItems"></div>
+          <div id="totalPrice">Total: ₹0</div>
+        </div>
+
+        <div class="field">
+          <label for="bdetails">Additional Notes</label>
+          <textarea id="bdetails" rows="3" placeholder="Any special requests or ideas…"></textarea>
         </div>
 
         <button type="submit" class="btn primary full" style="margin-top: 4px;">
-          Submit Booking
+          Confirm & WhatsApp
         </button>
 
         <p id="bookingSuccess" class="success-msg" style="display:none; margin-top: 8px;">
@@ -501,19 +527,101 @@
   <!-- JAVASCRIPT: Booking, Mobile Menu, Full Screen Preview & Scroll Animations -->
 <script>
   /* === BOOKING MODAL === */
+  const services = {
+    "Hair Styling": [
+      { name: "Stylish party hairstyle", description: "Perfect for parties and events", price: 1500, inputType: "none" },
+      { name: "Bridal hairstyle", description: "Elegant bridal styling", price: 2500, inputType: "none" },
+      { name: "Hair coloring", description: "Professional hair coloring service", price: 3000, inputType: "quantity" }
+    ],
+    "Makeup": [
+      { name: "Bridal Makeup", description: "Complete bridal makeup with trial", price: 5000, inputType: "none" },
+      { name: "Party Makeup", description: "Glam makeup for parties and events", price: 2500, inputType: "none" },
+      { name: "Engagement Look", description: "Special engagement makeup", price: 3500, inputType: "none" },
+      { name: "Model Portfolio Shoot", description: "Professional makeup for photoshoots", price: 4000, inputType: "quantity" }
+    ],
+    "Facial": [
+      { name: "Anti-Aging Facial", description: "Rejuvenating facial treatment", price: 2000, inputType: "quantity" },
+      { name: "Hydrating Facial", description: "Deep hydration treatment", price: 1500, inputType: "none" },
+      { name: "Brightening Facial", description: "Skin brightening treatment", price: 1800, inputType: "duration" }
+    ]
+  };
+
   const openBooking = document.getElementById('openBooking');
   const closeBooking = document.getElementById('closeBooking');
   const bookingModal = document.getElementById('bookingModal');
   const bookingForm = document.getElementById('bookingForm');
   const successMsg = document.getElementById('bookingSuccess');
-  const showPhoneBtnBooking = document.getElementById('showPhoneBtnBooking');
-  const phoneDisplayBooking = document.getElementById('phoneDisplayBooking');
+  const mainServices = document.getElementById('mainServices');
+  const subServicesContainer = document.getElementById('subServicesContainer');
+  const subServices = document.getElementById('subServices');
+  const bookingSummary = document.getElementById('bookingSummary');
+  const summaryItems = document.getElementById('summaryItems');
+  const totalPrice = document.getElementById('totalPrice');
+
+  function populateMainServices() {
+    mainServices.innerHTML = '';
+    Object.keys(services).forEach(service => {
+      const label = document.createElement('label');
+      label.innerHTML = `<input type="radio" name="mainService" value="${service}"> ${service}`;
+      mainServices.appendChild(label);
+    });
+  }
+
+  function handleMainServiceChange() {
+    const selectedMain = document.querySelector('input[name="mainService"]:checked');
+    if (selectedMain) {
+      const mainService = selectedMain.value;
+      subServices.innerHTML = '';
+      services[mainService].forEach(service => {
+        const item = document.createElement('div');
+        item.className = 'service-item';
+        item.innerHTML = `
+          <div class="service-header">
+            <input type="checkbox" data-service="${service.name}" data-price="${service.price}" data-input="${service.inputType}">
+            <label>${service.name}</label>
+          </div>
+          <div class="service-details">${service.description}</div>
+          <div class="service-price">₹${service.price}${service.inputType === 'quantity' ? ' per unit' : service.inputType === 'duration' ? ' per hour' : ''}</div>
+          ${service.inputType === 'quantity' ? '<input type="number" min="1" value="1" placeholder="Qty">' : ''}
+          ${service.inputType === 'duration' ? '<input type="number" min="0.5" step="0.5" value="1" placeholder="hours">' : ''}
+        `;
+        subServices.appendChild(item);
+      });
+      subServicesContainer.style.display = 'block';
+    } else {
+      subServicesContainer.style.display = 'none';
+    }
+    updateSummary();
+  }
+
+  function updateSummary() {
+    const selectedServices = [];
+    let total = 0;
+    document.querySelectorAll('#subServices input[type="checkbox"]:checked').forEach(checkbox => {
+      const serviceName = checkbox.dataset.service;
+      const price = parseFloat(checkbox.dataset.price);
+      const inputType = checkbox.dataset.input;
+      let multiplier = 1;
+      const input = checkbox.parentElement.parentElement.querySelector('input[type="number"]');
+      if (input) {
+        multiplier = parseFloat(input.value) || 1;
+      }
+      const itemTotal = price * multiplier;
+      total += itemTotal;
+      selectedServices.push(`${serviceName} - ₹${itemTotal}`);
+    });
+    summaryItems.innerHTML = selectedServices.join('<br>');
+    totalPrice.textContent = `Total: ₹${total}`;
+    bookingSummary.style.display = total > 0 ? 'block' : 'none';
+  }
 
   if (openBooking && closeBooking && bookingModal && bookingForm) {
     openBooking.addEventListener('click', () => {
       bookingModal.classList.add('show');
+      populateMainServices();
       if (successMsg) successMsg.style.display = 'none';
-      if (phoneDisplayBooking) phoneDisplayBooking.style.display = 'none';
+      subServicesContainer.style.display = 'none';
+      bookingSummary.style.display = 'none';
     });
 
     closeBooking.addEventListener('click', () => {
@@ -526,32 +634,61 @@
       }
     });
 
-    if (showPhoneBtnBooking && phoneDisplayBooking) {
-      showPhoneBtnBooking.addEventListener('click', () => {
-        phoneDisplayBooking.style.display = phoneDisplayBooking.style.display === 'none' ? 'block' : 'none';
-      });
-    }
+    mainServices.addEventListener('change', handleMainServiceChange);
+    subServices.addEventListener('change', updateSummary);
+    subServices.addEventListener('input', updateSummary);
 
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('bname').value.trim();
+      const phone = document.getElementById('bphone').value.trim();
       const address = document.getElementById('baddress').value.trim();
-      const service = document.getElementById('bservice').value.trim();
+      const date = document.getElementById('bdate').value;
+      const time = document.getElementById('btime').value;
+      const selectedMain = document.querySelector('input[name="mainService"]:checked');
       const details = document.getElementById('bdetails').value.trim();
-      if (!name || !service) {
-        alert('Please fill at least your name and select a service.');
+
+      if (!name || !phone || !selectedMain) {
+        alert('Please fill in your name, phone, and select a main service.');
         return;
       }
+
+      const selectedServices = [];
+      document.querySelectorAll('#subServices input[type="checkbox"]:checked').forEach(checkbox => {
+        const serviceName = checkbox.dataset.service;
+        const inputType = checkbox.dataset.input;
+        let detail = serviceName;
+        const input = checkbox.parentElement.parentElement.querySelector('input[type="number"]');
+        if (input) {
+          const value = input.value;
+          detail += inputType === 'quantity' ? ` (Qty: ${value})` : ` (${value} hours)`;
+        }
+        selectedServices.push(detail);
+      });
+
+      if (selectedServices.length === 0) {
+        alert('Please select at least one sub-service.');
+        return;
+      }
+
+      const total = totalPrice.textContent.replace('Total: ₹', '');
       let message = "New Booking Request:%0A%0A" +
-        "Name: " + name + "%0A" +
-        "Address: " + address + "%0A" +
-        "Service: " + service + "%0A" +
-        "Details: " + details + "%0A" +
-        "Please contact me asap! 😊";
-      let whatsappNumber = "916386754482";
+        "👤 Name: " + name + "%0A" +
+        "📞 Phone: " + phone + "%0A" +
+        "🏠 Address: " + address + "%0A" +
+        "📅 Date: " + date + "%0A" +
+        "⏰ Time: " + time + "%0A" +
+        "💄 Services: " + selectedServices.join(', ') + "%0A" +
+        "💰 Total: ₹" + total + "%0A" +
+        "📝 Notes: " + details + "%0A%0A" +
+        "Please confirm my booking! 😊";
+
+      const whatsappNumber = "916386754482";
       window.open("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message), "_blank");
       if (successMsg) successMsg.style.display = 'block';
       bookingForm.reset();
+      subServicesContainer.style.display = 'none';
+      bookingSummary.style.display = 'none';
     });
   }
 
@@ -562,6 +699,16 @@
   if (showPhoneBtnInquiry && phoneDisplayInquiry) {
     showPhoneBtnInquiry.addEventListener('click', () => {
       phoneDisplayInquiry.style.display = phoneDisplayInquiry.style.display === 'none' ? 'block' : 'none';
+    });
+  }
+
+  /* === BOOKING MODAL PHONE BUTTON === */
+  const showPhoneBtnBooking = document.getElementById('showPhoneBtnBooking');
+  const phoneDisplayBooking = document.getElementById('phoneDisplayBooking');
+
+  if (showPhoneBtnBooking && phoneDisplayBooking) {
+    showPhoneBtnBooking.addEventListener('click', () => {
+      phoneDisplayBooking.style.display = phoneDisplayBooking.style.display === 'none' ? 'block' : 'none';
     });
   }
 

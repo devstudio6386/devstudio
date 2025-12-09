@@ -1,10 +1,10 @@
 # TODO List for Website Enhancements
 
 ## Phase 1: Add Phone Number Reveal Feature
-- [ ] Add "Show Phone Number" button in Booking Modal
-- [ ] Add "Show Phone Number" button in Enquiry Form
-- [ ] Implement modal/tooltip to display phone number (916386754482)
-- [ ] Ensure forms send to WhatsApp 916386754482
+- [x] Add "Show Phone Number" button in Booking Modal
+- [x] Add "Show Phone Number" button in Enquiry Form
+- [x] Implement modal/tooltip to display phone number (916386754482)
+- [x] Ensure forms send to WhatsApp 916386754482
 
 ## Phase 2: Beautify and Professionalize Design
 - [ ] Enhance color schemes and gradients
