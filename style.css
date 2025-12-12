@@ -1484,13 +1484,13 @@ section {
 /* Big background text like MOHAMED RADY */
 .model-bg-title {
   position: absolute;
-  top: 6%;
-  left: 6%;
+  top: 1%;
+  left: 8%;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  line-height: 0.9;
-  font-size: clamp(3rem, 9vw, 5.5rem);
+  line-height: 1.0;
+  font-size: clamp(3rem, 9vw, 5.8rem);
   color: rgba(255, 255, 255, 0.04);
   pointer-events: none;
   user-select: none;
