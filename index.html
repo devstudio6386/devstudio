@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=1.9" />
+  <link rel="stylesheet" href="style.css?v=2.0" />
 </head>
 <body>
   <header class="navbar">
@@ -681,12 +681,13 @@
         return;
       }
 
-      let message = "New Booking Request:%0A%0A" +
-        "👤 Name: " + name + "%0A" +
-        "🏠 Address: " + address + "%0A" +
-        "💄 Service: " + mainService + "%0A" +
-        "💅 Sub-Service: " + selectedSubService + "%0A%0A" +
-        "Please confirm my booking! 😊";
+      let message =
+"New Booking Request:\n\n" +
+"👤 Name: " + name + "\n" +
+"🏠 Address: " + address + "\n" +
+"💈 Service: " + mainService + "\n" +
+"✨ Sub-Service: " + selectedSubService + "\n\n" +
+"Please confirm my booking! 😊";
 
       const whatsappNumber = "916386754482";
       window.open("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message), "_blank");
