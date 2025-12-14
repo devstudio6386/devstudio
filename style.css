@@ -114,7 +114,7 @@ body {
   /* 👇 Yahan se background image ka game shuru */
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.25)),
-    url("https://ik.imagekit.io/hyi9kn2fq/WhatsApp%20Image%202025-12-13%20at%2012.21.32%20PM.jpeg");
+    url("https://ik.imagekit.io/hyi9kn2fq/dev.jpeg?updatedAt=1764349562402");
   /* ⬆ SAMPLE LINK – baad me sirf is url("...") ke andar tum apna link daal dena */
 
   background-size: cover;
@@ -336,19 +336,19 @@ section {
 .port-card:nth-child(1) {
   background-image:
     linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25)),
-    url("https://ik.imagekit.io/hyi9kn2fq/pexels-myco-libot-3831669-17384017_1_.jpg");
+    url("https://ik.imagekit.io/hyi9kn2fq/IMG_4634.JPG");
 }
 
 .port-card:nth-child(2) {
   background-image:
     linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25)),
-    url("https://ik.imagekit.io/hyi9kn2fq/pexels-myco-libot-3831669-17384017_1_.jpg");
+    url("https://ik.imagekit.io/hyi9kn2fq/IMG_1708.JPG");
 }
 
 .port-card:nth-child(3) {
   background-image:
     linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25)),
-    url("https://ik.imagekit.io/hyi9kn2fq/pexels-myco-libot-3831669-17384017_1_.jpg");
+    url("https://ik.imagekit.io/hyi9kn2fq/IMG_1706.JPG");
 }
 
 
