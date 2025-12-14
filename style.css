@@ -114,7 +114,7 @@ body {
   /* 👇 Yahan se background image ka game shuru */
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.25)),
-    url("https://ik.imagekit.io/hyi9kn2fq/dev.jpeg?updatedAt=1764349562402");
+    url("https://ik.imagekit.io/hyi9kn2fq/WhatsApp%20Image%202025-12-14%20at%2010.09.43%20PM%20(4).jpeg");
   /* ⬆ SAMPLE LINK – baad me sirf is url("...") ke andar tum apna link daal dena */
 
   background-size: cover;
@@ -132,7 +132,7 @@ body {
     padding: 120px 7vw 60px;          /* thoda kam padding upar */
     overflow: visible;               /* kuch cut na ho */
   }
-  .hero-content {margin-top: 170px;text-align: center;
+  .hero-content {margin-top: 280px;text-align: center;
   }
 }
 
