@@ -114,7 +114,7 @@ body {
   /* 👇 Yahan se background image ka game shuru */
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.25)),
-    url("https://ik.imagekit.io/hyi9kn2fq/WhatsApp%20Image%202025-12-14%20at%2010.09.43%20PM%20(4).jpeg");
+    url("https://ik.imagekit.io/hyi9kn2fq/DSC_2109.JPG");
   /* ⬆ SAMPLE LINK – baad me sirf is url("...") ke andar tum apna link daal dena */
 
   background-size: cover;
@@ -336,7 +336,7 @@ section {
 .port-card:nth-child(1) {
   background-image:
     linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25)),
-    url("https://ik.imagekit.io/hyi9kn2fq/IMG_4634.JPG");
+    url("https://ik.imagekit.io/hyi9kn2fq/IMG_20251215_121626.jpg");
 }
 
 .port-card:nth-child(2) {
