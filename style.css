@@ -1824,6 +1824,14 @@ section {
   }
 }
 
+/* SEO Hidden Content - Google can read, users can't see */
+.seo-hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 
 
