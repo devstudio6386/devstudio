@@ -1783,6 +1783,46 @@ section {
   z-index: 50;
 }
 
+/* Header Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 64px;        /* chhota & classy */
+  height: 65px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.logo-text {
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #f5c6d6;     /* soft bridal pink */
+  font-weight: 600;
+}
+
+.logo-text span {
+  color: #ff4f9a;     /* highlight Studio */
+  font-weight: 700;
+}
+
+.logo-text {
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo-text {
+    font-size: 17px;
+  }
+}
 
 
 
