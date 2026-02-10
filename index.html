@@ -1105,5 +1105,56 @@ document.getElementById("quickInquiryForm").addEventListener("submit", function(
 
 
 
+<style>
+.review-float {
+  position: fixed;
+  bottom: 160px;   /* 👈 Upar shift */
+  right: 20px;
+  z-index: 9999;
+  animation: floatMove 2.5s ease-in-out infinite;
+}
+
+@keyframes floatMove {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.review-btn {
+  background: linear-gradient(135deg, #34a853, #0f9d58);
+  color: #fff;
+  padding: 13px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 18px rgba(52,168,83,0.7);
+}
+</style>
+
+<div class="review-float">
+  <button class="review-btn" onclick="openReview()">
+    ⭐ Feedback / Review
+  </button>
+</div>
+
+<script>
+function openReview() {
+  window.open(
+    "https://share.google/PGjUzBJa2oaN7Mgqm",
+    "_blank"
+  );
+}
+</script>
+
+
+
+
+
 </body>
 </html>
+
+
+
+
+
